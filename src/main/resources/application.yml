@@ -32,3 +32,12 @@ eureka:
 
 jwt:
   secret: junhyeokwonhogyeonghajaechul0104073111150730
+
+management:
+  endpoint:
+    web:
+      exposure:
+        include: "*"
+    shutdown:
+      sensitive: false
+      enabled: true

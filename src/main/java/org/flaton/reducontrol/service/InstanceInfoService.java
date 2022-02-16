@@ -28,18 +28,19 @@ public class InstanceInfoService {
 
     @Transactional
     public InstanceInfoDto updateInstanceInfo(InstanceInfoDto instanceInfoDto){
-        return InstanceInfoDto.of(instanceInfoRepository.save(instanceInfoDto.toEntity()));
+        InstanceInfo instanceInfo = instanceInfoRepository.save(instanceInfoDto.toEntity());
+        return InstanceInfoDto.of(instanceInfo);
     }
 
     @Transactional
-    public List<InstanceInfoDto> updateInstanceInfos(List<InstanceInfoDto> instanceInfoDtos){
-        List<InstanceInfo> instanceInfos = instanceInfoDtos.stream()
-                .map(instanceInfoDto -> instanceInfoDto.toEntity())
-                .collect(Collectors.toList());
-        return instanceInfoRepository.saveAll(instanceInfos)
-                .stream()
-                .map(InstanceInfoDto::of)
-                .collect(Collectors.toList());
+    public void setRedundancy(InstanceInfoDto instanceInfoDto){
+        instanceInfoRepository.setActive(instanceInfoDto);
+        instanceInfoRepository.setStandbyExceptOne(instanceInfoDto);
+    }
+
+    @Transactional
+    public void setRedundancyForFail(String appName){
+        instanceInfoRepository.setStandby(appName);
     }
 
     public List<InstanceInfoDto> findInstanceInfoByAppName(String appName) {
@@ -48,6 +49,10 @@ public class InstanceInfoService {
                 .sorted(Comparator.comparing(InstanceInfo::getInstanceId))
                 .map(InstanceInfoDto::of)
                 .collect(Collectors.toList());
+    }
+
+    public void deleteInstanceInfo(InstanceInfoDto instanceInfoDto){
+        instanceInfoRepository.delete(instanceInfoDto.toEntity());
     }
 
 }
