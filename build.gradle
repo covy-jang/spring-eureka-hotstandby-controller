@@ -10,8 +10,8 @@ plugins {
     id 'java'
 }
 
-group = 'org.flaton'
-version = '0.0.1-SNAPSHOT'
+group = 'com.paper.airline'
+version = '1.0.0-Beta'
 sourceCompatibility = '11'
 
 configurations {
