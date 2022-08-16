@@ -10,15 +10,18 @@ import java.util.List;
 
 @Component
 public class EurekaContextRegistry {
+
     public List<Application> findRegisterApplications() {
-        return EurekaServerContextHolder.getInstance().getServerContext()
+        return EurekaServerContextHolder.getInstance()
+                .getServerContext()
                 .getRegistry()
                 .getApplications()
                 .getRegisteredApplications();
     }
 
     public boolean contains(InstanceInfoDto instanceInfoDto) {
-        InstanceInfo instanceInfo = EurekaServerContextHolder.getInstance().getServerContext()
+        InstanceInfo instanceInfo = EurekaServerContextHolder.getInstance()
+                .getServerContext()
                 .getRegistry()
                 .getApplication(instanceInfoDto.getAppName())
                 .getByInstanceId(instanceInfoDto.getInstanceId());
