@@ -42,5 +42,4 @@ public class InstanceInfo {
         this.redundancy = redundancy;
         this.lastUpdatedTimestamp = lastUpdatedTimestamp;
     }
-
 }

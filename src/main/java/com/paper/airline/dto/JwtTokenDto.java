@@ -1,8 +1,9 @@
 package com.paper.airline.dto;
 
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
+@ToString
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 public class JwtTokenDto {
     private String accessToken;

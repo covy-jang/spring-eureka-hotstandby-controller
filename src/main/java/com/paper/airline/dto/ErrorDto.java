@@ -13,6 +13,4 @@ public class ErrorDto {
         this.status = status;
         this.message = message;
     }
-
-
 }

@@ -7,6 +7,7 @@ import com.paper.airline.vo.Redundancy;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@EqualsAndHashCode
 @ToString
 @NoArgsConstructor
 @Setter
@@ -59,23 +60,5 @@ public class InstanceInfoDto {
                 .redundancy(redundancy)
                 .lastUpdatedTimestamp(lastUpdatedTimestamp)
                 .build();
-    }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        InstanceInfoDto that = (InstanceInfoDto) o;
-        return Objects.equals(instanceId, that.instanceId)
-                && Objects.equals(appName, that.appName)
-                && Objects.equals(ipAddr, that.ipAddr)
-                && Objects.equals(sid, that.sid)
-                && Objects.equals(hostName, that.hostName)
-                && status == that.status
-                && Objects.equals(lastUpdatedTimestamp, that.lastUpdatedTimestamp);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(instanceId, appName, ipAddr, sid, hostName, status, lastUpdatedTimestamp);
     }
 }

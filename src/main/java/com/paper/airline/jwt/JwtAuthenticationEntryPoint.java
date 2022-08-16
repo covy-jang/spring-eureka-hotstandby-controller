@@ -23,6 +23,5 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
               .build();
       response.getWriter()
               .println(errorDto);
-
    }
 }

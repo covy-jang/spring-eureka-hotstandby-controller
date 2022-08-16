@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static com.paper.airline.domain.entity.QInstanceInfo.instanceInfo;
+import static com.paper.airline.entity.QInstanceInfo.instanceInfo;
 
 @Slf4j
 @RequiredArgsConstructor
