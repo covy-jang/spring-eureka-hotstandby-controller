@@ -1,4 +1,4 @@
-# Active-HotStandby Controller Using Spring Eureka
+# Active-HotStandby Controller
 
 분산 처리 시스템이 아닌 Active-Standby 구성이 필요할 때 사용할 수 있는 기능입니다.
 Eureka Server Application 등록되어 있는 대상 중 가장 먼저 등록된 대상을 Active 선정합니다.
